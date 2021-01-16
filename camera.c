@@ -6,7 +6,7 @@
 /*   By: abenouda <abenouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 02:40:39 by abenouda          #+#    #+#             */
-/*   Updated: 2021/01/16 17:56:25 by abenouda         ###   ########.fr       */
+/*   Updated: 2021/01/16 18:56:32 by abenouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ t_cam	*setupcamera(t_camlist *c_list)
 {
 	t_cam *cam;
 
+	if (!c_list)
+		return (NULL);
 	cam = (t_cam*)c_list->cam;
 	return (cam);
 }

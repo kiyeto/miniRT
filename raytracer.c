@@ -6,7 +6,7 @@
 /*   By: abenouda <abenouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 17:15:40 by abenouda          #+#    #+#             */
-/*   Updated: 2021/01/16 17:57:29 by abenouda         ###   ########.fr       */
+/*   Updated: 2021/01/16 18:57:35 by abenouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ void	raytrace(t_cam *c, t_sc *sc, t_mlx *img)
 {
 	t_rt	t;
 
+	if (!c)
+		return ;
 	initialize(&t);
 	while (++t.i < sc->h)
 	{

@@ -6,7 +6,7 @@
 /*   By: abenouda <abenouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 03:05:02 by abenouda          #+#    #+#             */
-/*   Updated: 2021/01/16 17:57:26 by abenouda         ###   ########.fr       */
+/*   Updated: 2021/01/16 18:58:55 by abenouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int		is_valid2(char *line, t_sc *s)
 int		is_valid(char *line, t_sc *s)
 {
 	int i;
-	
+
 	i = 1;
 	if (line[0] == (char)'R')
 	{
@@ -61,7 +61,7 @@ int		is_valid(char *line, t_sc *s)
 			return (i = parse_r(line + 1, s));
 		}
 		else
-			return (-1);	
+			return (-1);
 	}
 	else if (line[0] == (char)'A')
 	{

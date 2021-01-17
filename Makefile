@@ -6,13 +6,16 @@
 #    By: abenouda <abenouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/25 08:35:14 by abenouda          #+#    #+#              #
-#    Updated: 2021/01/15 18:18:57 by abenouda         ###   ########.fr        #
+#    Updated: 2021/01/17 12:58:23 by abenouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = minirt
+NAME = miniRT
 
-SRC = 	*.c
+SRC = 	bmp.c camera.c constructors.c ft_split.c get_next_line.c get_next_line_utils.c\
+inter_shapes.c inter_shapes2.c intersect.c intersect_shadows.c keys.c main.c operators.c\
+operators2.c  parse_params.c parse_shapes.c parsing.c raytracer.c tools.c tools2.c\
+utils_parsing1.c utils_parsing2.c utils_parsing3.c 
 
 OBJ = $(SRC:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: abenouda <abenouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 14:57:56 by abenouda          #+#    #+#             */
-/*   Updated: 2021/01/16 17:56:48 by abenouda         ###   ########.fr       */
+/*   Updated: 2021/01/17 13:01:21 by abenouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	bmp_render(unsigned char *p, unsigned char *h, char *file, t_sc *sc)
 	create_bmp(h, p, sc->w * sc->h * 4);
 	mlx_destroy_image(mlx.mlx_p, mlx.img);
 	free(mlx.mlx_p);
+	exit(0);
 }
 
 int		main(int argc, char **argv)
@@ -64,5 +65,4 @@ int		main(int argc, char **argv)
 		bmp_render(pixels, header, argv[1], &sc);
 	else
 		write(0, "Arguments error!\n", 17);
-	system("leaks minirt");
 }

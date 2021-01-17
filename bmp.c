@@ -6,11 +6,31 @@
 /*   By: abenouda <abenouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 15:38:57 by abenouda          #+#    #+#             */
-/*   Updated: 2021/01/16 17:56:23 by abenouda         ###   ########.fr       */
+/*   Updated: 2021/01/17 11:45:28 by abenouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
+
+void		*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	int		i;
+	char	*cdest;
+	char	*csrc;
+
+	if (!dest && !src)
+		return (dest);
+	cdest = (char*)dest;
+	if (src)
+		csrc = (char*)src;
+	i = 0;
+	while ((size_t)i < n)
+	{
+		cdest[i] = csrc[i];
+		i++;
+	}
+	return (dest);
+}
 
 t_header	header_info(t_sc *sc)
 {
@@ -31,15 +51,15 @@ t_header	header_info(t_sc *sc)
 
 void		fill_header(t_header h, unsigned char *header)
 {
-	memcpy(header, "BM", 2);
-	memcpy(header + 2, &h.size, 4);
-	memcpy(header + 10, &h.bfoffbits, 4);
-	memcpy(header + 14, &h.bisize, 4);
-	memcpy(header + 18, &h.width, 4);
-	memcpy(header + 22, &h.height, 4);
-	memcpy(header + 26, &h.biplanes, 2);
-	memcpy(header + 28, &h.bitcount, 2);
-	memcpy(header + 34, &h.imagesize, 4);
+	ft_memcpy(header, "BM", 2);
+	ft_memcpy(header + 2, &h.size, 4);
+	ft_memcpy(header + 10, &h.bfoffbits, 4);
+	ft_memcpy(header + 14, &h.bisize, 4);
+	ft_memcpy(header + 18, &h.width, 4);
+	ft_memcpy(header + 22, &h.height, 4);
+	ft_memcpy(header + 26, &h.biplanes, 2);
+	ft_memcpy(header + 28, &h.bitcount, 2);
+	ft_memcpy(header + 34, &h.imagesize, 4);
 }
 
 void		create_bmp(unsigned char *header, unsigned char *pixels, int size)
@@ -53,7 +73,7 @@ void		create_bmp(unsigned char *header, unsigned char *pixels, int size)
 		write(fd, pixels, size);
 		free(pixels);
 		close(fd);
-		write(1, "Image saved !\n", 14);
+		write(1, "Image saved, look for sceneshot.bmp in the files!\n", 50);
 	}
 	else
 		write(1, "couldn't create the bmp file", 28);

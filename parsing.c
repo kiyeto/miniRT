@@ -6,7 +6,7 @@
 /*   By: abenouda <abenouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 03:05:02 by abenouda          #+#    #+#             */
-/*   Updated: 2021/01/16 18:58:55 by abenouda         ###   ########.fr       */
+/*   Updated: 2021/01/17 12:13:28 by abenouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ int		is_valid2(char *line, t_sc *s)
 		return (i = parse_cy(line + 2, s));
 	else if (!ft_strncmp(line, (const char*)"tr ", 3))
 		return (i = parse_tr(line + 2, s));
+	else if (line[0] == '\0')
+		return (1);
 	else
 		return (-1);
 	return (i);

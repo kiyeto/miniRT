@@ -6,7 +6,7 @@
 /*   By: abenouda <abenouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 15:09:36 by abenouda          #+#    #+#             */
-/*   Updated: 2021/01/16 17:56:39 by abenouda         ###   ########.fr       */
+/*   Updated: 2021/01/18 17:45:03 by abenouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ double	sub_intercy(t_ray r, t_cy *cy, t_var_cy *var)
 	var->x = vmin(r.o, cy->p);
 	var->a = dot(r.d, r.d) - powf(dot(r.d, cy->n), 2);
 	var->b = 2 * (dot(r.d, var->x) - dot(r.d, cy->n) * dot(var->x, cy->n));
-	var->c = dot(var->x, var->x) - powf(dot(var->x, cy->n), 2) - cy->d;
+	var->c = dot(var->x, var->x) - powf(dot(var->x, cy->n), 2) - pow(cy->d, 2);
 	var->delta = (var->b * var->b) - (4 * var->a * var->c);
 	if (var->delta < 0)
 		return (0);

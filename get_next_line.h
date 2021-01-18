@@ -6,14 +6,13 @@
 /*   By: abenouda <abenouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 14:53:17 by abenouda          #+#    #+#             */
-/*   Updated: 2020/12/14 23:49:19 by abenouda         ###   ########.fr       */
+/*   Updated: 2021/01/18 17:22:26 by abenouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>

@@ -6,17 +6,17 @@
 /*   By: abenouda <abenouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 18:37:39 by abenouda          #+#    #+#             */
-/*   Updated: 2021/01/16 17:57:43 by abenouda         ###   ########.fr       */
+/*   Updated: 2021/01/18 14:25:32 by abenouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int		ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
-	int i;
-	int nb;
-	int sign;
+	int		i;
+	long	nb;
+	int		sign;
 
 	sign = 1;
 	i = -1;
@@ -31,10 +31,10 @@ int		ft_atoi(const char *str)
 				i++;
 			while (str[i] > '/' && str[i] < ':')
 				nb = nb * 10 + str[i++] - 48;
-			return (nb * sign);
+			return (nb * sign <= MAX_INT ? nb * sign : MAX_INT);
 		}
 		else if (str[i] != ' ' && (str[i] < 9 || str[i] > 13))
-			return (nb * sign);
+			return (nb * sign <= MAX_INT ? nb * sign : MAX_INT);
 	}
 	return (nb * sign);
 }

@@ -6,7 +6,7 @@
 /*   By: abenouda <abenouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 14:55:59 by abenouda          #+#    #+#             */
-/*   Updated: 2021/01/18 11:57:23 by abenouda         ###   ########.fr       */
+/*   Updated: 2021/01/18 14:20:22 by abenouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <string.h>
 # include <errno.h>
 # include <stdint.h>
-
+# define MAX_INT 2147483647
 # define EPSILON .000000001
 
 t_v3		vplus(t_v3 a, t_v3 b);
@@ -84,7 +84,7 @@ double		getfloat(char *s);
 t_v3		get_rgb(char *s);
 int			nb_parts(char **s);
 int			check(char *s, char c);
-int			ft_atoi(const char *str);
+long		ft_atoi(const char *str);
 int			numcheck(char *s);
 t_v3		get_position(char *s);
 t_v3		get_normal(char *s);

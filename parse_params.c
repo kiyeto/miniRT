@@ -6,7 +6,7 @@
 /*   By: abenouda <abenouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 18:47:22 by abenouda          #+#    #+#             */
-/*   Updated: 2021/01/16 17:57:20 by abenouda         ###   ########.fr       */
+/*   Updated: 2021/01/18 11:52:20 by abenouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,23 +29,20 @@ t_v3	*valcolor(t_v3 *clr)
 int		parse_r(char *line, t_sc *s)
 {
 	char	**content;
-	int		w;
-	int		h;
 
 	content = ft_split(line, ' ');
-	if (nb_parts(content) != 2)
+	if (nb_parts(content) != 2 ||
+		(!numcheck(content[0]) || !numcheck(content[1])))
 		return (-1);
-	w = ft_atoi(content[0]);
-	h = ft_atoi(content[1]);
+	s->w = ft_atoi(content[0]);
+	s->h = ft_atoi(content[1]);
 	ft_free(content);
-	if (w > 0 && h > 0)
+	if (s->w > 0 && s->h > 0)
 	{
-		if (w > 2560)
-			w = 2560;
-		if (h > 1440)
-			h = 1440;
-		s->w = w;
-		s->h = h;
+		if (s->w > 2560)
+			s->w = 2560;
+		if (s->h > 1440)
+			s->h = 1440;
 		return (1);
 	}
 	return (-1);

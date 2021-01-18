@@ -6,7 +6,7 @@
 /*   By: abenouda <abenouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 14:55:59 by abenouda          #+#    #+#             */
-/*   Updated: 2021/01/16 19:06:15 by abenouda         ###   ########.fr       */
+/*   Updated: 2021/01/18 11:57:23 by abenouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,8 @@ int			valid_n(t_v3 *p);
 int			valid_p(t_v3 *p);
 t_v3		*valcolor(t_v3 *clr);
 
-void		printv3(char *s, t_v3 v);
+int			numcheck(char *s);
+size_t		ft_strlen(const char *str);
 
 int			esc_key(int key, void *param);
 int			ft_exit(void);

@@ -6,11 +6,32 @@
 /*   By: abenouda <abenouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 14:57:56 by abenouda          #+#    #+#             */
-/*   Updated: 2021/01/17 13:01:21 by abenouda         ###   ########.fr       */
+/*   Updated: 2021/01/18 12:13:29 by abenouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
+
+int		check_rt(char *file)
+{
+	char	**p;
+
+	if (ft_strlen(file) > 3)
+	{
+		p = ft_split(file, '.');
+		if (nb_parts(p) != 2)
+		{
+			ft_free(p);
+			return (0);
+		}
+		if (!ft_strncmp(p[1], "rt", 2))
+		{
+			ft_free(p);
+			return (1);
+		}
+	}
+	return (0);
+}
 
 void	window_render(char *file, t_sc *sc)
 {
@@ -19,6 +40,11 @@ void	window_render(char *file, t_sc *sc)
 	t_param			*p;
 
 	cams = NULL;
+	if (!check_rt(file))
+	{
+		write(1, "Error\nFile Not Valid!\n", 23);
+		exit(0);
+	}
 	parse(file, sc);
 	mlx.mlx_p = mlx_init();
 	mlx.mlx_w = mlx_new_window(mlx.mlx_p, sc->w, sc->h, "K's MiniRT");
@@ -38,6 +64,11 @@ void	bmp_render(unsigned char *p, unsigned char *h, char *file, t_sc *sc)
 {
 	t_mlx	mlx;
 
+	if (!check_rt(file))
+	{
+		write(1, "Error\nFile Not Valid!\n", 23);
+		exit(0);
+	}
 	parse(file, sc);
 	mlx.mlx_p = mlx_init();
 	mlx.img = mlx_new_image(mlx.mlx_p, sc->w, sc->h);

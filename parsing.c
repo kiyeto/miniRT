@@ -6,7 +6,7 @@
 /*   By: abenouda <abenouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 03:05:02 by abenouda          #+#    #+#             */
-/*   Updated: 2021/01/17 12:13:28 by abenouda         ###   ########.fr       */
+/*   Updated: 2021/01/18 12:42:36 by abenouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int		is_valid2(char *line, t_sc *s)
 	else if (!ft_strncmp(line, (const char*)"tr ", 3))
 		return (i = parse_tr(line + 2, s));
 	else if (line[0] == '\0')
+		return (1);
+	else if (line[0] == '#')
 		return (1);
 	else
 		return (-1);
@@ -107,10 +109,15 @@ void	parse(char *pl, t_sc *scene)
 	{
 		if (is_valid(p, scene) != 1)
 		{
-			printf("\nParsing error!\n");
+			write(1, "Error\n", 6);
 			exit(0);
 		}
 		free(p);
+	}
+	if (!g_a || !g_r)
+	{
+		write(1, "R & A parameters are necessary in an .rt file\n", 46);
+		exit(0);
 	}
 	close(fd);
 }

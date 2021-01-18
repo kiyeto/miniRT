@@ -6,7 +6,7 @@
 /*   By: abenouda <abenouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 03:05:02 by abenouda          #+#    #+#             */
-/*   Updated: 2021/01/18 12:42:36 by abenouda         ###   ########.fr       */
+/*   Updated: 2021/01/18 19:24:13 by abenouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ int		is_valid2(char *line, t_sc *s)
 	int i;
 
 	i = 1;
-	if ((line[0] == (char)'c') && (line[1] != (char)'y'))
+	if ((line[0] == (char)'c') && (line[1] == (char)' '))
 		return (i = parse_c(line + 1, s));
-	else if (line[0] == (char)'l')
+	else if (line[0] == (char)'l' && (line[1] == (char)' '))
 		return (i = parse_l(line + 1, s));
 	else if (!ft_strncmp(line, (const char*)"sp ", 3))
 		return (i = parse_sp(line + 2, s));
@@ -57,7 +57,7 @@ int		is_valid(char *line, t_sc *s)
 	int i;
 
 	i = 1;
-	if (line[0] == (char)'R')
+	if (line[0] == (char)'R' && line[1] == (char)' ')
 	{
 		if (!g_r)
 		{
@@ -67,7 +67,7 @@ int		is_valid(char *line, t_sc *s)
 		else
 			return (-1);
 	}
-	else if (line[0] == (char)'A')
+	else if (line[0] == (char)'A' && line[1] == (char)' ')
 	{
 		if (!g_a)
 		{

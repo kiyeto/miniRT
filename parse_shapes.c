@@ -6,7 +6,7 @@
 /*   By: abenouda <abenouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 18:46:26 by abenouda          #+#    #+#             */
-/*   Updated: 2021/01/16 17:57:23 by abenouda         ###   ########.fr       */
+/*   Updated: 2021/01/18 18:20:30 by abenouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int		parse_sq(char *line, t_sc *s)
 	sq->h = getfloat(content[2]);
 	sq->rgb = get_rgb(content[3]);
 	ft_free(content);
-	if (valid_p(&sq->p) && valid_p(&sq->n) && sq->h > 0 && valcolor(&sq->rgb))
+	if (valid_p(&sq->p) && valid_n(&sq->n) && sq->h > 0 && valcolor(&sq->rgb))
 	{
 		lstadd_back(&s->shapes, lstnew(sq, 4));
 		return (1);

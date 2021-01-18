@@ -6,7 +6,7 @@
 /*   By: abenouda <abenouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 14:57:56 by abenouda          #+#    #+#             */
-/*   Updated: 2021/01/18 12:13:29 by abenouda         ###   ########.fr       */
+/*   Updated: 2021/01/18 19:36:00 by abenouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,4 +96,5 @@ int		main(int argc, char **argv)
 		bmp_render(pixels, header, argv[1], &sc);
 	else
 		write(0, "Arguments error!\n", 17);
+	return (0);
 }

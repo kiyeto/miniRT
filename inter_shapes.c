@@ -6,7 +6,7 @@
 /*   By: abenouda <abenouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 14:51:10 by abenouda          #+#    #+#             */
-/*   Updated: 2021/01/16 17:56:37 by abenouda         ###   ########.fr       */
+/*   Updated: 2021/01/18 18:48:37 by abenouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,22 +88,23 @@ double	intertr(t_ray r, t_tr *tr, t_v3 *p, t_v3 *n)
 double	intersq(t_ray r, t_sq *sq, t_v3 *p, t_v3 *n)
 {
 	t_var_sq	o;
+	double		h;
 
 	o.t = dot(vmin(sq->p, r.o), vdiv(sq->n, dot(r.d, sq->n)));
 	if (o.t > EPSILON)
 	{
-		*p = vplus(r.o, vpro(r.d, o.t));
-		*n = sq->n;
-		o.sqx = cross(sq->n, pt(0, 1, 0));
+		o.sqx = cross(sq->n, pt(0, -1, 0));
 		if (o.sqx.x == 0 && o.sqx.y == 0 && o.sqx.z == 0)
 			o.sqx = cross(sq->n, pt(1, 0, 0));
-		o.sqy = cross(sq->n, vpro(o.sqx, -1));
-		o.corner = vplus(sq->p, vpro(o.sqx, -sq->h / 2));
-		o.corner = vplus(o.corner, vpro(o.sqy, -sq->h / 2));
-		o.v = vmin(*p, o.corner);
+		o.sqy = cross(o.sqx, sq->n);
+		*p = vplus(r.o, vpro(r.d, o.t));
+		*n = sq->n;
+		o.v = vmin(*p, sq->p);
 		o.prj1 = dot(o.v, o.sqx);
 		o.prj2 = dot(o.v, o.sqy);
-		if ((o.prj1 < sq->h && o.prj1 > 0) && (o.prj2 < sq->h && o.prj2 > 0))
+		h = sq->h / 2;
+		if ((o.prj1 <= h && o.prj1 >= -h)
+		&& (o.prj2 <= h && o.prj2 >= -h))
 			return (o.t);
 	}
 	return (0);
